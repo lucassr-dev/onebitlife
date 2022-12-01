@@ -1,15 +1,10 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 
-export default function DefaultButton({
-  buttonText,
-  handlePress,
-  width,
-  height
-}) {
+export default function DefaultButton({ buttonText, handlePress }) {
   return (
     <TouchableOpacity
-      style={[styles.button, { width: width, height: height }]}
+      style={styles.button}
       activeOpacity={0.7}
       onPress={handlePress}
     >
@@ -20,6 +15,8 @@ export default function DefaultButton({
 
 const styles = StyleSheet.create({
   button: {
+    width: 200,
+    height: 60,
     alignItems: 'center',
     justifyContent: 'center',
     borderWidth: 1,
