@@ -1,64 +1,72 @@
-import react from 'react'
+import React from "react";
 import {
   View,
   Text,
-  StylesSheet,
-  ScrollView
-} from 'react-native-gesture-handler'
+  StyleSheet,
+  ScrollView,
+  handleNavHome,
+  handleSetShowHome,
+} from "react-native";
+import DefaultButton from "../../Components/Common/DefaultButton";
+import ExplanationCard from "../../Components/Explanation/ExplanationCard";
+import { useNavigation } from "@react-navigation/native";
 
 export default function AppExplanation() {
-  function handlerSetShowHome() {
-    console.log('botão clicado!!')
+  const navigation = useNavigation();
+
+  function handleNavHome() {
+    navigation.navigate("Home");
   }
 
   return (
-    <view style={Styles.container}>
+    <View style={styles.container}>
       <ScrollView>
-        <view style={{ alignItems: 'center' }}>
-          <text style={styles.title}>
-            Antes, deixa {'\n'} eu te explicar...
-          </text>
-          <text style={styles.descriptionCta}>
-            Pronto(a) para subir de nivel na vida?
-          </text>
-          <text style={styles.description}>
-            Na próxima tela você vai poder escolher {'\n'} seus 4 hábitos de
+        <View style={{ alignItems: "center" }}>
+          <Text style={styles.title}>
+            Antes, deixa {"\n"} eu te explicar...
+          </Text>
+          <ExplanationCard />
+          <Text style={styles.descriptionCta}>
+            Pronto(a) para subir de nível na vida?
+          </Text>
+          <Text style={styles.description}>
+            Na próxima tela você vai poder escolher {"\n"} seus 4 hábitos de
             forma individual.
-          </text>
-          <defaultButton
-            buttonText={'Continuar'}
-            handlerPress={handlerSetShowHome}
+          </Text>
+          <DefaultButton
+            buttonText={"Continuar"}
+            handlePress={handleNavHome}
             width={250}
             height={50}
           />
-        </view>
+        </View>
       </ScrollView>
-    </view>
-  )
+    </View>
+  );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundcolor: 'rgba(21, 21, 21, 0.98)'
+    backgroundColor: "rgba(21, 21, 21, 0.98)",
   },
   title: {
     fontSize: 30,
-    fontWeight: 'bold',
-    color: 'white',
-    textAlign: 'center',
-    marginVertical: 40
+    fontWeight: "bold",
+    color: "white",
+    textAlign: "center",
+    marginVertical: 40,
   },
   descriptionCta: {
-    color: 'white',
-    fontWeight: 'bold',
+    color: "white",
+    fontWeight: "bold",
     fontSize: 16,
     marginTop: 20,
-    marginBottom: 10
+    marginBottom: 10,
   },
   description: {
-    color: 'white',
-    textAlign: 'center',
-    marginBottom: 30
-  }
-})
+    color: "white",
+    textAlign: "center",
+    marginBottom: 30,
+  },
+});
